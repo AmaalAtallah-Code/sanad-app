@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سَنَد - دليل الخدمات المحلي</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <!-- شريط الحالة العلوي ونظام الـ Offline -->
+    <header class="app-header">
+        <div class="logo-section">
+            <h2>سَنَد</h2>
+        </div>
+        <div id="network-status" class="status-badge offline">
+            <span class="status-icon">📶❌</span>
+            <span class="status-text">وضع العمل بدون إنترنت</span>
+        </div>
+    </header>
+
+    <!-- صندوق البحث السريع -->
+    <section class="search-section">
+        <input type="text" id="search-bar" placeholder="ابحث عن منطقة أو خدمة...">
+    </section>
+
+    <!-- شبكة التصنيفات الرئيسية (أيقونات مؤقتة لحين جهوزية الملتيميديا) -->
+    <main class="categories-grid">
+        <div class="category-card active" onclick="filterService('water')">
+            <div class="icon-box">💧</div>
+            <h3>نقاط المياه</h3>
+        </div>
+        <div class="category-card" onclick="filterService('power')">
+            <div class="icon-box">⚡</div>
+            <h3>شحن هواتف</h3>
+        </div>
+        <div class="category-card" onclick="filterService('maintenance')">
+            <div class="icon-box">🛠️</div>
+            <h3>مراكز صيانة</h3>
+        </div>
+        <div class="category-card" onclick="filterService('aid')">
+            <div class="icon-box">📦</div>
+            <h3>إغاثة ومساعدات</h3>
+        </div>
+    </main>
+
+    <!-- قائمة الخدمات النشطة -->
+    <section class="services-list-section">
+        <h3 class="section-title">الخدمات المتاحة</h3>
+        
+        <div id="services-container">
+            <!-- كرت محطة مياه النصر (مبني مؤقتاً بالـ HTML للتأكد من التصميم البصري) -->
+            <div class="service-card">
+                <div class="card-image-placeholder">
+                    <!-- مكان الصورة التي سنضعها لاحقاً -->
+                    <span class="image-icon">💧</span>
+                </div>
+                <div class="card-details">
+                    <h4 class="service-name">محطة مياه النصر</h4>
+                    <div class="badges-row">
+                        <span class="badge status-available">متاح حالياً</span>
+                        <span class="badge type-badge">مياه شرب</span>
+                    </div>
+                    <p class="service-location">📍 حي النصر، المنطقة الشرقية - بجوار مدرسة النصر الإعدادية</p>
+                    <div class="card-actions">
+                        <button class="btn btn-primary">طلب اتجاه</button>
+                        <button class="btn btn-secondary">إبلاغ عن مشكلة</button>
+                    </div>
+                </div>
+            </div>
+            <!-- نهاية الكرت -->
+        </div>
+    </section>
+
+    <!-- شريط التنقل السفلي الثابت -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item active">🏠 الرئيسية</a>
+        <a href="#" class="nav-item">📍 الخريطة</a>
+        <a href="#" class="nav-item">⚠️ إبلاغ</a>
+        <a href="#" class="nav-item">📊 الإدارة</a>
+    </nav>
+
+    <script src="app.js"></script>
+</body>
+</html>

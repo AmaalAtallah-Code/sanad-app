@@ -1,0 +1,222 @@
+/* إعدادات الخطوط والتصفير الأساسية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f7f9fa;
+    color: #333;
+    padding-bottom: 80px; /* لعدم تغطية المحتوى بشريط التنقل السفلي */
+}
+
+/* شريط الحالة العلوي */
+.app-header {
+    background-color: #0d5c63; /* لون تركواز داكن احترافي */
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.status-badge {
+    background-color: #e65f2b; /* برتقالي للتنبيه بالـ Offline */
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* صندوق البحث */
+.search-section {
+    padding: 15px;
+}
+
+#search-bar {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background-color: #fff;
+}
+
+/* شبكة التصنيفات */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 0 15px 15px 15px;
+}
+
+.category-card {
+    background-color: #fff;
+    border: 1px solid #eef2f3;
+    border-radius: 10px;
+    padding: 12px 5px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.category-card.active {
+    border: 2px solid #0d5c63;
+    background-color: #f0f7f7;
+}
+
+.category-card .icon-box {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.category-card h3 {
+    font-size: 11px;
+    color: #555;
+}
+
+/* قائمة الخدمات والبطاقات */
+.services-list-section {
+    padding: 15px;
+}
+
+.section-title {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #0d5c63;
+}
+
+.service-card {
+    background-color: #fff;
+    border-radius: 12px;
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.card-image-placeholder {
+    background-color: #eef2f5;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-icon {
+    font-size: 40px;
+}
+
+.card-details {
+    padding: 15px;
+}
+
+.service-name {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.badges-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.status-available {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.type-badge {
+    background-color: #e2f0d9;
+    color: #385723;
+}
+
+.service-location {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+/* الأزرار */
+.card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #0d5c63;
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: #fff;
+    color: #e65f2b;
+    border: 1px solid #e65f2b;
+}
+
+/* شريط التنقل السفلي الثابت */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #777;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-item.active {
+    color: #0d5c63;
+    font-weight: bold;
+}
+/* الألوان الإضافية لحالة الموارد */
+.status-busy {
+    background-color: #fff3cd;
+    color: #856404; /* أصفر داكن للمزدحم */
+}
+
+.status-unavailable {
+    background-color: #f8d7da;
+    color: #721c24; /* أحمر للمقطوع */
+}
