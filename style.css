@@ -1,0 +1,1049 @@
+/* الأنماط العامة لملائمة واجهة فيجما */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+body {
+    background-color: #121214;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #1a202c;
+}
+
+/* حاوية محاكاة الهاتف الذكي */
+.app-phone-container {
+    width: 100%;
+    max-width: 410px;
+    height: 100vh;
+    max-height: 840px;
+    background-color: #fcfdfe; /* الخلفية البيضاء الناعمة المأخوذة من الصور */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    border-radius: 16px;
+}
+
+/* التحكم بظهور واختفاء الشاشات */
+.app-view {
+    display: none;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.view-active {
+    display: flex;
+}
+
+/* ==================== 0. أنماط شاشة التحميل (Splash) ==================== */
+#viewSplash {
+    background: radial-gradient(circle at center, #f4f7fb 0%, #e9eff5 100%);
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-title {
+    font-size: 36px;
+    color: #031A30;
+    font-weight: 700;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* أيقونة اللوكيشن المميزة من شعارك (سند) */
+.sanad-pin {
+    width: 110px;
+    height: 110px;
+    background-color: #031A30; /* اللون الكحلي الأساسي للشعار */
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    box-shadow: 0 8px 16px rgba(3, 26, 48, 0.2);
+}
+
+.sanad-pin::after {
+    content: '';
+    width: 65px;
+    height: 65px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.leaf-accent {
+    width: 35px;
+    height: 35px;
+    background-color: #7fa43b; /* اللون الأخضر النباتي من شعارك */
+    border-radius: 0 70% 0 70%;
+    transform: rotate(45deg);
+    z-index: 2;
+}
+
+.small-pin {
+    width: 70px;
+    height: 70px;
+}
+.small-pin::after {
+    width: 40px;
+    height: 40px;
+}
+.small-pin .leaf-accent {
+    width: 22px;
+    height: 22px;
+}
+
+/* ==================== 1. أنماط شاشات التعريف (Onboarding) ==================== */
+.onboarding-slider {
+    display: flex;
+    width: 300%;
+    height: 80%;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.onboarding-slide {
+    width: 33.333%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 32px;
+    text-align: center;
+}
+
+.slide-card-img {
+    width: 260px;
+    height: 260px;
+    background-color: #ffffff;
+    border-radius: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+    margin-bottom: 40px;
+    border: 1px solid #f0f4f8;
+}
+
+.slide-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #031A30;
+    margin-bottom: 16px;
+}
+
+.slide-desc {
+    font-size: 14px;
+    color: #718096;
+    line-height: 1.7;
+}
+
+.onboarding-footer {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px 40px 24px;
+}
+
+/* النقاط مطابقة تماماً للملف رقم 1 */
+.dots-container {
+    display: flex;
+    gap: 6px;
+}
+
+.step-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #cbd5e0;
+    transition: all 0.3s ease;
+}
+
+.step-dot.active {
+    background-color: #031A30;
+    width: 24px;
+    border-radius: 4px;
+}
+
+/* الزر الكحلي الداكن المأخوذ من الصور */
+.btn-sanad-dark {
+    width: 100%;
+    background-color: #031A30;
+    color: #ffffff;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+
+.btn-sanad-dark:active {
+    background-color: #092c4e;
+}
+
+/* ==================== 2. الهيدر المشترك للواجهات الداخلية ==================== */
+.view-header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid #edf2f7;
+    background-color: #ffffff;
+}
+
+.back-arrow-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #031A30;
+    cursor: pointer;
+}
+
+.header-title {
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: 700;
+    color: #031A30;
+    font-size: 18px;
+}
+
+.view-body {
+    flex: 1;
+    padding: 30px 24px;
+    overflow-y: auto;
+}
+
+.main-heading {
+    font-size: 26px;
+    font-weight: 700;
+    color: #031A30;
+    margin-bottom: 6px;
+}
+
+.sub-heading {
+    font-size: 14px;
+    color: #718096;
+    margin-bottom: 35px;
+}
+
+/* ==================== 3. كروت تحديد نوع الحساب (الملف 2 و 5) ==================== */
+.selection-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.type-card-label {
+    cursor: pointer;
+}
+
+.type-card-label input[type="radio"] {
+    display: none; /* إخفاء زر الراديو التقليدي */
+}
+
+.type-card-content {
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+/* عند اختيار الكرت يظهر تحديد أزرق ناعم خفيف */
+.type-card-label input[type="radio"]:checked + .type-card-content {
+    border-color: #3182ce;
+    background-color: #f7fafc;
+}
+
+.radio-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #cbd5e0;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+
+.type-card-label input[type="radio"]:checked + .type-card-content .radio-custom {
+    border-color: #3182ce;
+}
+
+.type-card-label input[type="radio"]:checked + .type-card-content .radio-custom::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: #3182ce;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card-text-wrapper {
+    flex: 1;
+}
+
+.card-text-wrapper h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #031A30;
+    margin-bottom: 4px;
+}
+
+.card-text-wrapper p {
+    font-size: 12px;
+    color: #718096;
+    line-height: 1.5;
+}
+
+.card-icon {
+    font-size: 24px;
+    background-color: #f7fafc;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #edf2f7;
+}
+
+.switch-view-text {
+    text-align: center;
+    font-size: 14px;
+    color: #718096;
+    margin-top: 24px;
+}
+
+.link-span {
+    color: #3182ce;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* ==================== 4. عناصر حقول الإدخال والاستمارات ==================== */
+.auth-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.auth-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #1a202c;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #031A30;
+}
+
+.forget-password {
+    align-self: flex-start;
+    font-size: 12px;
+    color: #718096;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.terms-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.terms-checkbox input {
+    margin-top: 4px;
+}
+
+.terms-checkbox label {
+    font-size: 12px;
+    color: #4a5568;
+    line-height: 1.6;
+}
+/* تنسيقات شاشة الدليل الرئيسي */
+.main-app-header {
+    background-color: #031A30;
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-branding-center {
+    text-align: center;
+}
+
+.app-logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    display: block;
+}
+
+.pwa-badge {
+    font-size: 10px;
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.15);
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+.search-box-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search-box-wrapper input {
+    width: 100%;
+    padding: 14px 45px 14px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background-color: #ffffff;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-trigger-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+}
+
+.category-tabs-row {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    scrollbar-width: none;
+}
+.category-tabs-row::-webkit-scrollbar { display: none; }
+
+.tab-item {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    color: #4a5568;
+    transition: all 0.2s;
+}
+
+.tab-item.active {
+    background-color: #031A30;
+    color: white;
+    border-color: #031A30;
+}
+
+/* تصميم كروت الخدمات المستوحى من جداول البيانات */
+.service-data-card {
+    background: #ffffff;
+    border: 1px solid #edf2f7;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.card-header-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.badge-region {
+    background-color: #ebf8ff;
+    color: #2b6cb0;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.badge-status {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 20px;
+}
+
+/* ربط الألوان بالحالات الواقعية لجداول الإكسل */
+.status-متوفر, .status-متاح { background-color: #f0fdf4; color: #166534; }
+.status-محدود, .status-ضغط_متوسط, .status-منخفض { background-color: #fefce8; color: #854d0e; }
+.status-شبه_منتهي, .status-ضغط_مرتفع { background-color: #fef2f2; color: #991b1b; }
+
+.card-main-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 6px;
+}
+
+.card-detail-row {
+    font-size: 12px;
+    color: #718096;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.card-metrics-grid {
+    background-color: #f7fafc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    font-size: 11px;
+}
+
+.metric-box strong {
+    color: #031A30;
+}
+/* الأنماط الجديدة والمكملة لفيجما - الملف 4 */
+
+/* 1. الهيرو الأزرق الكحلي في الرئيسية */
+.main-blue-hero {
+    background-color: #031A30; /* نفس كحلي فيجما الداكن */
+    color: #ffffff;
+    padding: 30px 24px 40px 24px;
+    border-radius: 0 0 28px 28px; /* الانحناء السفلي الملحوظ في الواجهة */
+}
+
+.hero-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.location-badge-top {
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.profile-icon-top {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+}
+
+.hero-greeting {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.hero-subtext {
+    font-size: 13px;
+    color: #a0aec0;
+    margin-bottom: 24px;
+}
+
+/* 2. شبكة الأزرار الأربعة للخدمات الأساسية */
+.services-grid-four {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.grid-service-card {
+    background-color: #ffffff;
+    border: 1px solid #edf2f7;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.015);
+    transition: transform 0.2s;
+}
+
+.grid-service-card:active { transform: scale(0.96); }
+
+.card-icon-holder {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    margin: 0 auto 12px auto;
+}
+
+/* خلفيات الأيقونات الهادئة من فيجما */
+.water-bg { background-color: #e6f0fa; }
+.power-bg { background-color: #fef9e6; }
+.repair-bg { background-color: #f4ebe6; }
+.aid-bg { background-color: #e6f4ea; }
+
+.grid-service-card span {
+    font-size: 13px;
+    font-weight: 700;
+    color: #2d3748;
+}
+
+/* بطاقة تنبيه الطوارئ الخضراء/الفاتحة التحتية */
+.emergency-alert-card {
+    background-color: #f0fdf4;
+    border: 1px solid #dcfce7;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    align-items: center;
+}
+
+.alert-info-icon { font-size: 20px; }
+.alert-text-content h4 { font-size: 13px; font-weight: 700; color: #166534; }
+.alert-text-content p { font-size: 11px; color: #1e8754; margin-top: 2px; }
+
+/* 3. شريط التنقل السفلي المطور (Bottom Navigation) */
+.bottom-nav-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background-color: #ffffff;
+    border-top: 1px solid #edf2f7;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+}
+
+.nav-item-btn {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    color: #a0aec0;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.nav-item-btn.active-nav {
+    color: #7fa43b; /* اللون الأخضر النشط المعتمد للتبويبات الحالية */
+    font-weight: 700;
+}
+
+/* 4. شاشة التفاصيل والصور */
+.details-main-img {
+    width: 100%;
+    height: 180px;
+    background-color: #e2e8f0;
+    border-radius: 16px;
+    object-fit: cover;
+    margin-bottom: 16px;
+}
+
+.details-action-buttons {
+    display: flex;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.btn-action-outline {
+    flex: 1;
+    background: none;
+    border: 1px solid #cbd5e0;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #4a5568;
+}
+
+.custom-select-sanad {
+    width: 100%; padding: 14px; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 14px; outline: none; background-color: #ffffff;
+}
+
+/* الملف الشخصي وقائمة الخيارات */
+.profile-card-center { text-align: center; padding: 20px 0; }
+.profile-avatar-big { font-size: 50px; }
+.profile-name-text { font-size: 18px; color: #031A30; margin-top: 10px; }
+.profile-role-tag { font-size: 11px; background-color: #f0fdf4; color: #166534; padding: 2px 8px; border-radius: 10px; }
+.profile-phone-sub { font-size: 12px; color: #718096; margin-top: 6px; cursor: pointer; }
+
+.profile-menu-list { display: flex; flex-direction: column; gap: 4px; margin-top: 15px; }
+.menu-item-row { display: flex; align-items: center; padding: 16px; background: #ffffff; border: 1px solid #f7fafc; border-radius: 12px; cursor: pointer; }
+.menu-text { flex: 1; font-size: 13px; font-weight: 500; margin-right: 12px; text-align: right; }
+.menu-arrow { color: #cbd5e0; font-size: 18px; }
+.btn-logout-danger { width: 100%; background: none; border: 1px solid #f56565; color: #e53e3e; padding: 14px; border-radius: 12px; font-weight: 700; margin-top: 20px; cursor: pointer; }
+/* تنسيقات التنقل والتحكم بالواجهات */
+.app-view {
+    display: none; /* مخفي افتراضياً */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    overflow-y: auto;
+}
+
+.app-view.active-view {
+    display: block; /* يظهر فقط الفعال */
+}
+
+/* تنسيق شاشات التعريف (Intro) */
+.intro-layout {
+    padding: 40px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.main-logo-holder {
+    width: 100px;
+    height: 100px;
+    background: #f0f4f8;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+.intro-title { font-size: 22px; font-weight: 700; color: #031A30; margin-bottom: 12px; }
+.intro-desc { font-size: 14px; color: #718096; line-height: 1.6; margin-bottom: 30px; }
+.intro-dots { display: flex; gap: 8px; margin-bottom: 40px; }
+.intro-dots .dot { width: 8px; height: 8px; background: #cbd5e0; border-radius: 50%; }
+.intro-dots .dot.active { width: 24px; background: #031A30; border-radius: 4px; }
+/* تنسيقات شاشة البحث المتقدم والفلترة الفرعية */
+.search-sticky-header {
+    background-color: #031A30; /* لون الهوية الكحلي الداكن من فيجما */
+    padding: 20px 16px 15px 16px;
+    border-radius: 0 0 24px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.search-bar-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-bar-row input {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    background-color: #f7fafc;
+    outline: none;
+}
+
+/* شريط الفلاتر الدائرية الأفقي الناعم */
+.mini-category-filters {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+/* إخفاء شريط التمرير الافتراضي لشكل جمالي */
+.mini-category-filters::-webkit-scrollbar {
+    display: none;
+}
+
+.mini-tab {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.mini-tab.active {
+    background-color: #7fa43b; /* أخضر فيجما للتبويب النشط */
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.results-count-line {
+    font-size: 12px;
+    color: #a0aec0;
+    margin-top: 10px;
+    text-align: right;
+}
+
+/* حاوية الكروت لتجنب الاختفاء تحت القائمة السفلية */
+.search-results-scroll {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* حالات الألوان للحالة (متوفر، منخفض، شبه منتهي) المستخرجة من الإكسل */
+.status-متوفر, .status-متاح { background-color: #e6f4ea; color: #137333; }
+.status-منخفض, .status-محدود, .status-ضغط_متوسط { background-color: #fef7e0; color: #b06000; }
+.status-شبه_منتهي, .status-ضغط_مرتفع, .status-شبه_ممتلئ { background-color: #fce8e6; color: #c5221f; }
+/* ==================== تنسيقات كروت البيانات المتقدمة (Figma Style) ==================== */
+.search-results-scroll {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background-color: #f7fafc;
+}
+
+/* الكرت الرئيسي المستوحى من التصميم */
+.service-data-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid #edf2f7;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    position: relative;
+}
+
+.service-data-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* الصف العلوي للكرت */
+.card-top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-main-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+/* ألوان الخلفيات للأيقونات حسب الفئة من التصميم */
+.icon-bg-water { background-color: #e6f4fe; color: #0070f3; }
+.icon-bg-power { background-color: #fff9db; color: #fab005; }
+.icon-bg-maintenance { background-color: #f3f0ff; color: #7048e8; }
+.icon-bg-aid { background-color: #ebfbee; color: #40c057; }
+
+.card-name-text {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
+}
+
+.card-sub-type {
+    font-size: 11px;
+    color: #718096;
+    margin-top: 2px;
+}
+
+/* باجات الحالة المستديرة */
+.status-badge {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+.status-متوفر, .status-متاح { background-color: #e6f4ea; color: #137333; }
+.status-منخفض, .status-محدود, .status-ضغط_متوسط { background-color: #fef7e0; color: #b06000; }
+.status-شبه_منتهي, .status-ضغط_مرتفع, .status-شبه_ممتلئ { background-color: #fce8e6; color: #c5221f; }
+
+/* صف الموقع والتفاصيل */
+.card-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #4a5568;
+    margin-top: 4px;
+}
+
+.meta-icon { color: #a0aec0; }
+
+/* شريط المؤشر الإحصائي المتقدم (للماء والشحن والمساعدات) */
+.card-progress-section {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #718096;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 6px;
+    background-color: #edf2f7;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+.fill-water { background-color: #0070f3; }
+.fill-power { background-color: #fab005; }
+.fill-maintenance { background-color: #7048e8; }
+.fill-aid { background-color: #40c057; }
+
+/* زر الإجراء السفلي للكرت */
+.card-action-btn {
+    margin-top: 8px;
+    width: 100%;
+    background-color: #031A30;
+    color: #ffffff;
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+/* تنسيق الصورة المصغرة داخل كرت البحث */
+.card-thumb-image {
+    width: 100%;
+    height: 120px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 8px;
+    background-color: #e2e8f0;
+}
+
+/* حاوية الخريطة الثابتة في شاشة التفاصيل وإضافة خدمة */
+.offline-map-placeholder {
+    width: 100%;
+    height: 160px;
+    border-radius: 14px;
+    object-fit: cover;
+    border: 1px solid #edf2f7;
+    margin: 10px 0;
+}
+
+/* زر التوجيه العائم (أيقونة الخريطة الصغيرة) */
+.map-floating-icon {
+    background: #7fa43b;
+    color: white;
+    padding: 6px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+/* تنسيق الصورة المصغرة في واجهة البحث لحل مشكلة التداخل */
+.card-thumb-image {
+    width: 100%;
+    height: 140px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 12px;
+    background-color: #e2e8f0;
+    display: block;
+}
+
+/* تأثير حركة لطيف لموقع الدبوس على الخريطة الثابتة */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
