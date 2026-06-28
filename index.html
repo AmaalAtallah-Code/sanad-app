@@ -212,5 +212,41 @@
 
     </div> <script src="js/data.js"></script>
     <script src="js/app.js"></script>
+    <!-- ضعيه في آخر ملف index.html قبل إغلاق </body> -->
+    <script>
+        // دالة التنقل بين الشاشات المعتمدة في تطبيقكِ
+        function navigateTo(viewId) {
+            // إخفاء جميع الشاشات التي تحمل كلاس app-view
+            document.querySelectorAll('.app-view').forEach(view => {
+                view.style.display = 'none';
+                view.classList.remove('active-view');
+            });
+
+            // إظهار الشاشة المطلوبة فقط
+            const targetView = document.getElementById(viewId);
+            if (targetView) {
+                targetView.style.display = 'block';
+                targetView.classList.add('active-view');
+                console.log("تم الانتقال بنجاح إلى الشاشة: " + viewId);
+            } else {
+                console.error("خطأ: لا توجد شاشة في الـ HTML تحمل الـ ID: " + viewId);
+            }
+        }
+
+        // دالة اختيار نوع الحساب وتلوين الكرت
+        function selectAccountType(element, typeId) {
+            document.querySelectorAll('.account-type-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            
+            if(typeId === 'seeker') {
+                document.getElementById('typeSeeker').checked = true;
+            } else {
+                document.getElementById('typeProvider').checked = true;
+            }
+        }
+    </script>
+</body>
 </body>
 </html>
