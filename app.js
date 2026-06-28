@@ -212,3 +212,19 @@ function openServiceDetails(category, id) {
         </div>
     `;
 }
+function selectAccountType(element, typeId) {
+    // إزالة كلاس الاختيار النشط من جميع البطاقات
+    document.querySelectorAll('.account-type-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+    
+    // إضافة كلاس النشط للبطاقة المضغوطة حالياً
+    element.classList.add('selected');
+    
+    // تفعيل زر الـ Radio المخفي بداخلها برمجياً
+    if(typeId === 'seeker') {
+        document.getElementById('typeSeeker').checked = true;
+    } else {
+        document.getElementById('typeProvider').checked = true;
+    }
+}

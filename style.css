@@ -1047,3 +1047,104 @@ body {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-6px); }
 }
+/* حاوية خيارات نوع الحساب الكلية */
+.account-type-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+    width: 100%;
+}
+
+/* بطاقة خيار نوع الحساب المخصصة */
+.account-type-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f7fafc;
+    border: 2px solid #edf2f7;
+    border-radius: 16px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    text-align: right;
+}
+
+/* تأثير تحويم وضغط على البطاقة */
+.account-type-card:hover {
+    border-color: #7fa43b;
+    background-color: #fafdfff5;
+}
+
+/* التنسيق عند اختيار البطاقة بنجاح */
+.account-type-card.selected {
+    border-color: #7fa43b;
+    background-color: #f7faf0;
+    box-shadow: 0 4px 12px rgba(127, 164, 59, 0.1);
+}
+
+/* تنظيم الأيقونة والنصوص في الجانب الأيمن */
+.card-info-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* أيقونة الفئة الدائرية اللطيفة */
+.card-type-icon {
+    font-size: 24px;
+    background: #ffffff;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* نصوص العناوين والوصف */
+.card-text-details h4 {
+    margin: 0 0 4px 0;
+    color: #031A30;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-text-details p {
+    margin: 0;
+    color: #718096;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* تخصيص مظهر دائرة الاختيار (Radio Button) المودرن */
+.custom-radio {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #cbd5e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.account-type-card.selected .custom-radio {
+    border-color: #7fa43b;
+}
+
+.account-type-card.selected .custom-radio::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: #7fa43b;
+    border-radius: 50%;
+    display: block;
+}
+
+/* إخفاء زر الاختيار الحقيقي التقليدي من الشاشة */
+.account-type-card input[type="radio"] {
+    display: none;
+}

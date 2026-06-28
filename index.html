@@ -44,82 +44,50 @@
             </div>
         </div>
 
-        <div class="app-view" id="viewUserType">
-            <div class="auth-header-zone">
-                <h3>أهلاً بك في سند</h3>
-                <p>الرجاء اختيار نوع الحساب للمتابعة</p>
+       <div style="padding: 20px; text-align: center;">
+    <h3 style="color:#031A30; margin-bottom: 8px; font-size: 22px;">أهلاً بك في سند</h3>
+    <p style="color:#718096; font-size: 14px; margin-bottom: 24px;">الرجاء اختيار نوع الحساب للمتابعة</p>
+
+    <!-- حاوية الخيارات المطورة -->
+    <div class="account-type-container">
+        
+        <!-- البطاقة الأولى: باحث عن خدمة -->
+        <div class="account-type-card selected" onclick="selectAccountType(this, 'seeker')">
+            <div class="card-info-group">
+                <div class="card-type-icon">🔍</div>
+                <div class="card-text-details">
+                    <h4>أبحث عن خدمة</h4>
+                    <p>أريد تصفح الخدمات والعثور على نقاط قريبة محلياً</p>
+                </div>
             </div>
-            <div class="view-body">
-                <div class="selection-card">
-                    <input type="radio" id="typeSeeker" name="user_role" value="seeker" checked>
-                    <label for="typeSeeker">
-                        <span class="selection-icon">🔍</span>
-                        <div class="selection-texts">
-                            <strong>أبحث عن خدمة</strong>
-                            <p>أريد تصفح الخدمات والعثور على نقاط قريبة محلياً</p>
-                        </div>
-                    </label>
-                </div>
-                <div class="selection-card">
-                    <input type="radio" id="typeProvider" name="user_role" value="provider">
-                    <label for="typeProvider">
-                        <span class="selection-icon">💼</span>
-                        <div class="selection-texts">
-                            <strong>مزود خدمة</strong>
-                            <p>أريد تقديم خدماتي والوصول إلى الفئات المحتاجة</p>
-                </div>
-                    </label>
-                </div>
-                <button class="btn-sanad-dark" style="margin-top: 30px;" onclick="navigateTo('viewLogin')">متابعة</button>
-                <p class="auth-switch-text">لديك حساب بالفعل؟ <span onclick="navigateTo('viewLogin')">تسجيل الدخول</span></p>
-            </div>
+            <div class="custom-radio"></div>
+            <input type="radio" name="accType" id="typeSeeker" value="seeker" checked>
         </div>
 
-        <div class="app-view" id="viewLogin">
-            <div class="auth-header-zone">
-                <h3>مرحباً بعودتك</h3>
-                <p>سجل دخولك للمتابعة في سند</p>
+        <!-- البطاقة الثانية: مزود خدمة -->
+        <div class="account-type-card" onclick="selectAccountType(this, 'provider')">
+            <div class="card-info-group">
+                <div class="card-type-icon">💼</div>
+                <div class="card-text-details">
+                    <h4>مزود خدمة</h4>
+                    <p>أريد تقديم خدماتي والوصول إلى الفئات المحتاجة</p>
+                </div>
             </div>
-            <div class="view-body">
-                <form class="auth-form" onsubmit="event.preventDefault(); navigateTo('viewDashboard');">
-                    <div class="input-group">
-                        <label>البريد الإلكتروني</label>
-                        <input type="email" placeholder="أدخل بريدك الإلكتروني" required>
-                    </div>
-                    <div class="input-group">
-                        <label>كلمة المرور</label>
-                        <input type="password" placeholder="أدخل كلمة المرور" required>
-                    </div>
-                    <button type="submit" class="btn-sanad-dark" style="margin-top: 20px;">تسجيل الدخول</button>
-                </form>
-                <p class="auth-switch-text">ليس لديك حساب؟ <span onclick="navigateTo('viewRegister')">إنشاء حساب</span></p>
-            </div>
+            <div class="custom-radio"></div>
+            <input type="radio" name="accType" id="typeProvider" value="provider">
         </div>
 
-        <div class="app-view" id="viewRegister">
-            <div class="auth-header-zone">
-                <h3>إنشاء حساب جديد</h3>
-                <p>انضم إلى مجتمع سند الآن واستفد من خدماتنا</p>
-            </div>
-            <div class="view-body">
-                <form class="auth-form" onsubmit="event.preventDefault(); navigateTo('viewDashboard');">
-                    <div class="input-group">
-                        <label>الاسم الكامل</label>
-                        <input type="text" placeholder="أدخل اسمك الكامل" required>
-                    </div>
-                    <div class="input-group">
-                        <label>البريد الإلكتروني</label>
-                        <input type="email" placeholder="example@domain.com" required>
-                    </div>
-                    <div class="input-group">
-                        <label>كلمة المرور</label>
-                        <input type="password" placeholder="********" required>
-                    </div>
-                    <button type="submit" class="btn-sanad-dark" style="margin-top: 20px;">إنشاء حساب</button>
-                </form>
-                <p class="auth-switch-text">لديك حساب بالفعل؟ <span onclick="navigateTo('viewLogin')">تسجيل الدخول</span></p>
-            </div>
-        </div>
+    </div>
+
+    <!-- زر المتابعة الأنيق المستدير والممتد -->
+    <button class="btn-sanad-dark" style="width: 100%; padding: 14px; border-radius: 14px; font-size: 16px; font-weight: bold; margin-top: 10px;">
+        متابعة
+    </button>
+    
+    <p style="color: #718096; font-size: 13px; margin-top: 20px;">
+        لديك حساب بالفعل؟ <a href="#" style="color: #7fa43b; text-decoration: none; font-weight: bold;">تسجيل الدخول</a>
+    </p>
+</div>
 
         <div class="app-view" id="viewDashboard">
             <div class="main-blue-hero">
