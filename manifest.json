@@ -1,0 +1,17 @@
+{
+  "short_name": "سند",
+  "name": "تطبيق سند للخدمات المحلية",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2555/2555572.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#031A30",
+  "theme_color": "#031A30",
+  "display": "standalone",
+  "orientation": "portrait"
+}
